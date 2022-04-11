@@ -22,7 +22,11 @@ public class Creditcard {
         int sum1 = sumOfDoubleEvenPlace(number);
         int sum2 = sumOfOddPlace(number);
         int sum = sum1 + sum2;
-
+        int size = getSize(number);
+        // corner case check when size is out of range [13, 16]
+        if(size < 13 || size > 16){
+            return false;
+        }
 
         if(sum % 10 == 0){
             return true;
