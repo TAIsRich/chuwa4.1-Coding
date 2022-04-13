@@ -1,11 +1,11 @@
 public class Laptop extends PersonalComputer{
     // fields
-    boolean isFolded;
-    int size;
-    int weight;
-    boolean outOfBattery;
-    boolean isAuthorized;
-    String name;
+    private boolean isFolded;
+    public int size;
+    public int weight;
+    private boolean outOfBattery;
+    private boolean isAuthorized;
+    private String name;
 
     public Laptop(String userName) {
         super(userName);
