@@ -110,20 +110,21 @@ public class Creditcard {
         }
         return number;
     }
+    
+    public static void validateCard(long cardNum){
+        if(isValid(cardNum)){
+            System.out.println (cardNum + "is Valid");
+        }else{
+            System.out.println (cardNum + "is invalid");
+        }
+
+    }
 
     public static void main(String[] args){
         long card1 = 4388576018410707L;
         long card2 = 4388576018402626L;
-        if(isValid(card1) ){
-            System.out.println("card1 is valid");
-        }else{
-            System.out.println("card1 is not invalid");
-        }
-        if(isValid(card2)){
-            System.out.println("card2 is valid");
-        }else{
-            System.out.println("card2 is not invalid");
-        }
+        validateCard(card1);
+        validateCard(card2);
     }
 
 }
