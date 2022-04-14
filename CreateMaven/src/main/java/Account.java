@@ -1,9 +1,9 @@
 import java.util.*;
 
 public class Account {
-    String username;
-    int userID;
-    double balance;
+    private String username;
+    private int userID;
+    private double balance;
 
     public Account(String username, int userID) {
         this.username = username;
