@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h2>Login</h2>
+Username: <input type="text" id="username"><br>
+Password: <input type="password" id="password"><br>
+<button onclick="login()">login</button>
+<script>
+
+
+    function login(){
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        //fetch一个前端调用后台的api 接口的请求方式，类似于AJAX
+        fetch('/login?username=' + username + "&password=" + password).then(res=>res.text()).then(res => {
+          // alert(res)
+            if (res !== "failed") { //(res === 'success'){
+                location.href = '/index.html?balance=' + res; //'/'等于/index.html*/
+                //alert(res);
+            }
+
+        })
+    }
+</script>
+</body>
+</html>
