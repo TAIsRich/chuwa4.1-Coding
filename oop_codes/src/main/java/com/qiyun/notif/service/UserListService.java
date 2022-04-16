@@ -15,8 +15,10 @@ public class UserListService {
             String firstName = UserData.USERS[i][1];
             String email = UserData.USERS[i][3];
             String loginName = UserData.USERS[i][2];
+            int preference = Integer.parseInt(UserData.USERS[i][4]);
 
-            users[i] = new User(id, firstName, email, loginName);
+
+            users[i] = new User(id, firstName, email, loginName, preference);
         }
     }
 

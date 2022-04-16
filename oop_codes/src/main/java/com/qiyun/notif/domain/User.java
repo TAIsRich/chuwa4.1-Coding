@@ -5,15 +5,18 @@ public class User {
     private String firstName;
     private String email;
     private String loginName;
+    private int preference;
 
     public User() {
     }
 
-    public User(int id, String firstName, String email, String loginName) {
+    public User(int id, String firstName, String email, String loginName, int preference) {
         this.id = id;
         this.firstName = firstName;
         this.email = email;
         this.loginName = loginName;
+        this.preference = preference;
+
     }
 
     public int getId() {
@@ -49,6 +52,12 @@ public class User {
     }
 
     public void sendEmail(){
+        if (this.preference== 0){
+            System.out.println("sent by phone");
+
+        }else{
+            System.out.println("sent by email");
+        }
         System.out.println("Hey "+ this.firstName + ", you have successfully " +
                 "registered to add and here is your "+ this.loginName +
                 ", please use this for future references.\n");
