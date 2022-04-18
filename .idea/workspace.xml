@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0ab7b52-252d-4a1e-9169-989a46136363" name="Default Changelist" comment="add design classes">
-      <change afterPath="$PROJECT_DIR$/oop/banking/src/main/java/bank/Branch.java" afterDir="false" />
+    <list default="true" id="e0ab7b52-252d-4a1e-9169-989a46136363" name="Default Changelist" comment="add branch and update checkingAccount and Bank class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oop/banking/src/main/java/bank/Bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/oop/banking/src/main/java/bank/Bank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oop/banking/src/main/java/bank/checkingAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/oop/banking/src/main/java/bank/checkingAccount.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,13 +41,15 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -71,7 +70,8 @@
       <workItem from="1649864039126" duration="216000" />
       <workItem from="1649865035273" duration="22000" />
       <workItem from="1649865106438" duration="1000" />
-      <workItem from="1649865134754" duration="4010000" />
+      <workItem from="1649865134754" duration="4130000" />
+      <workItem from="1649884514379" duration="658000" />
     </task>
     <task id="LOCAL-00001" summary="add design classes">
       <created>1649864161288</created>
@@ -94,7 +94,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649864190194</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add branch and update checkingAccount and Bank class">
+      <created>1649878860651</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1649878860651</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,6 +121,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add design classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="add design classes" />
+    <MESSAGE value="add branch and update checkingAccount and Bank class" />
+    <option name="LAST_COMMIT_MESSAGE" value="add branch and update checkingAccount and Bank class" />
   </component>
 </project>
