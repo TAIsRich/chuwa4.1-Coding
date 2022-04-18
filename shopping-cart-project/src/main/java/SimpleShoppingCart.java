@@ -4,6 +4,7 @@ import java.util.stream.Collectors;
 public class SimpleShoppingCart extends AbstractShoppingCart {
 
     public SimpleShoppingCart() {
+
         products = new ArrayList<>();
     }
 
