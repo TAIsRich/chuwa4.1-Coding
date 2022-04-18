@@ -5,5 +5,4 @@ public interface iyoutube {
 
     void Notify(String Message);
 
-    String getChannelName();
 }

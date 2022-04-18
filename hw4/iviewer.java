@@ -5,4 +5,8 @@ public interface iviewer {
 
     public String getPreference();
 
+    public String getEmail();
+
+    public String getphone();
+
 }
