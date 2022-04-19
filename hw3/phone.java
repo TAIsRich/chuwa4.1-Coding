@@ -1,4 +1,3 @@
-
 package hw3;
 
 interface phone {
