@@ -4,6 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @SpringBootApplication
 @RestController
 public class SpringBootTutorialApplication {
@@ -12,8 +15,10 @@ public class SpringBootTutorialApplication {
         SpringApplication.run(SpringBootTutorialApplication.class, args);
     }
     @GetMapping("/hello/{id}/{name}")
-    public String sayHello(@PathVariable String id, @PathVariable String name) {
-        return "ID: " + id + ", name: " + name;
+    public Map<String, String> sayHello(@PathVariable String id, @PathVariable String name) {
+        HashMap<String,String > map = new HashMap<>();
+        map.put(id, name);
+        return map;
     }
 
 }
