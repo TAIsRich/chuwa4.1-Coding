@@ -12,6 +12,7 @@ public class Notification {
     }
 
     public void sendEmail(User u){
+
         u.sendEmail();
     }
 }

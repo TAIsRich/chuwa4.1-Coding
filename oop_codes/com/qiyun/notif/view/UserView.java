@@ -4,6 +4,14 @@ import com.qiyun.notif.domain.*;
 import com.qiyun.notif.service.*;
 
 public class UserView {
+//    UserView --- Singleton
+    private UserView(){}
+    private static UserView instance = new UserView();
+    public static UserView getInstance(){
+        return instance;
+    }
+
+
     private UserListService listSvc = new UserListService();
     private Notification notif = new Notification();
 
@@ -54,23 +62,23 @@ public class UserView {
     }
 
     private void sendEmail() {
-        System.out.println("---------------------sendEmail---------------------");
-        System.out.print("Please enter ID to send email：");
+        System.out.println("---------------------send message---------------------");
+        System.out.print("Please enter ID to send message：");
         int id = com.qiyun.notif.view.TSUtility.readInt();
 
         try {
             User e = listSvc.getUser(id);
             notif.sendEmail(e);
-            System.out.println("Email sent");
+            System.out.println("message sent");
         } catch (UserException e) {
-            System.out.println("Cannot send Email: " + e.getMessage());
+            System.out.println("Cannot send message: " + e.getMessage());
         }
         // 按回车键继续...
         com.qiyun.notif.view.TSUtility.readReturn();
     }
 
     public static void main(String[] args) {
-        UserView view = new UserView();
+        UserView view = UserView.getInstance();
         view.enterMainMenu();
     }
 }
