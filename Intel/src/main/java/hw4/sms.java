@@ -1,3 +1,4 @@
+package hw4;
 
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class sms implements iyoutube {
         int length = String.valueOf(iview.getphone()).length();
         try {
             if (!("sms".equals(iview.getPreference())))
-                throw new preferenceException(iview.getname() + " the preference mismatched\n");
+                throw new preferenceException(iview.getname() + " the preference mismatched, this is for sms only\n");
             else if ((length == 10 && phoneoremail.instance.isnum(iview.getphone()))) {
                 smsList.add(iview);
                 System.out.println("hi! " + iview.getname() + " thank you for subscribing, we ll notify you in "

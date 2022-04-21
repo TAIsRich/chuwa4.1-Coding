@@ -1,3 +1,5 @@
+package hw4;
+
 public interface iviewer {
     void update(String message);
 

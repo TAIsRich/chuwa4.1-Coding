@@ -1,3 +1,5 @@
+package hw4;
+
 public class cviewer implements iviewer {
     private String name;
     private String preference;
@@ -7,7 +9,7 @@ public class cviewer implements iviewer {
     cviewer(String name, String preference, String temp) {
         this.name = name;
         this.preference = preference;
-        if (phoneoremail.instance.isnum(temp) == true)
+        if (phoneoremail.instance.isnum(temp) == true )
             this.phone = temp;
         else
             this.email = temp;
