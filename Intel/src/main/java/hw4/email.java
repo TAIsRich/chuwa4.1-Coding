@@ -1,3 +1,4 @@
+package hw4;
 
 import java.util.List;
 
@@ -20,12 +21,14 @@ public class email implements iyoutube {
         try {
             if (!("email".equals(iview.getPreference())))
                 throw new preferenceException(
-                        "ops " + iview.getname() + " the preference you type doesnt match your email!\n");
+                        "ops " + iview.getname() + " preference mismatched, this is for email preference only\n");
+
+
             else if (iview.getEmail().contains("@")) {
                 emailList.add(iview);
                 System.out.println("hi! " + iview.getname() + " thank you for subscribing, we ll notify you in "
                         + iview.getPreference() + " in the future\n");
-            } else
+            } else if (!iview.getEmail().contains("@"))
                 throw new preferenceException("ops " + iview.getname() + " you must type in an email\n");
         } catch (preferenceException e) {
             System.out.print(e);
