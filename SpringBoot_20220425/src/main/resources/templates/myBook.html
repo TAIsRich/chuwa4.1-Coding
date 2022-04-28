@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns: th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>My Book</title>
+</head>
+<body>
+    <p>Test html page</p>
+    <div>
+        <p><strong>Book name:</strong><span th:text="${myBook.bookName}">bookName</span></p>
+        <p><strong>Author:</strong><span th:text="${myBook.author}">author</span></p>
+        <p><strong>Description:</strong><span th:text="${myBook.description}">description</span></p>
+        <p><strong>ISBN:</strong><span th:text="${myBook.ISBN}">ISBN</span></p>
+    </div>
+</body>
+</html>
