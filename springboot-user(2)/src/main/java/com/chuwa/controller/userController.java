@@ -23,8 +23,6 @@ public class userController {
 
     @PostMapping("/signup")
     public ResponseEntity<User> registerUser(@RequestBody User user){
-
-
         User newUser = userServiceImpl.addUser(user);
         return  new ResponseEntity<>(newUser, HttpStatus.CREATED);
     }
@@ -35,7 +33,16 @@ public class userController {
         User user = userServiceImpl.findUserByEmail(email);
         return  new ResponseEntity<>(user,HttpStatus.OK);
     }
+    @PutMapping("/update")
+    public ResponseEntity<User> updateEmployee(@RequestBody User user){
+        User updateUser = userServiceImpl.updateUser(user);
+        return new ResponseEntity<>(updateUser,HttpStatus.OK);
+    }
 
-
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<?> deleteUser(@PathVariable("id") Long id){
+        userServiceImpl.deleteUser(id);
+        return  new ResponseEntity<>(HttpStatus.OK);
+    }
 
 }
