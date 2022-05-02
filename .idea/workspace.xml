@@ -40,21 +40,6 @@
       <recent name="bank" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -72,6 +57,7 @@
       <workItem from="1649865106438" duration="1000" />
       <workItem from="1649865134754" duration="4130000" />
       <workItem from="1649884514379" duration="658000" />
+      <workItem from="1651515792989" duration="223000" />
     </task>
     <task id="LOCAL-00001" summary="add design classes">
       <created>1649864161288</created>
