@@ -31,12 +31,10 @@ public class User {
     @Column(nullable = false)
     private String username;
 
-    @Column
-    @JsonIgnore
+    @Column(nullable = false)
     private String password;
 
     @Column
-    @JsonIgnore
     private boolean enabled;
 
 
