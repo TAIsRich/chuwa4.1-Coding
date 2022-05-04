@@ -1,21 +1,23 @@
 package com.example.user.h2.entity;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.springframework.context.annotation.Bean;
+
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 public class User {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(name="name")
     private String name;
+    @Column(name="email")
     private String email;
+    @Column(name="password")
     private String password;
-
 
     public User(String name, String email, String password) {
         this.name = name;

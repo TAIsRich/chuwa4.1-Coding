@@ -2,15 +2,14 @@ package com.example.user.h2.repository;
 
 import com.example.user.h2.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface UserRepo extends JpaRepository<User, Long> {
 
-    List<User> findByEmail(User email);
-
-    public void addUser(String name, String password, String email);
-    public void editUser(Long id);
-    public void removeUser(Long id);
+    public Boolean existByEmail(String email);
+    public User findUserByUserId(Long userId);
 
 }
