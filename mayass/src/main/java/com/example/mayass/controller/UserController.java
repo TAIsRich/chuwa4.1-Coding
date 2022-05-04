@@ -3,6 +3,7 @@ package com.example.mayass.controller;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import com.example.mayass.entity.User;
@@ -28,7 +29,10 @@ class UserController {
         this.service = service;
     }
 
-
+    @GetMapping("/user/{id}/{password}")
+    public String ValidatePassword(@PathVariable("id") Long id, @PathVariable("password") String password){
+        return ("Password of user id: " +id+ " is " + service.ValidatePassword(id,password));
+    }
 
     // tag::get-aggregate-root[]
     @GetMapping("/users")

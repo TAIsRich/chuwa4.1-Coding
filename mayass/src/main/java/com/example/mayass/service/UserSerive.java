@@ -2,6 +2,7 @@ package com.example.mayass.service;
 
 import com.example.mayass.controller.UserController;
 import com.example.mayass.entity.User;
+import com.example.mayass.exceptions.PasswordNotMatch;
 import com.example.mayass.exceptions.UserNotFoundException;
 import com.example.mayass.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,15 @@ public class UserSerive {
                 .collect(Collectors.toList());
 
         return CollectionModel.of(users, linkTo(methodOn(UserSerive.class).all()).withSelfRel());
+    }
+
+    public boolean ValidatePassword(Long id, String password){
+        User user = repository.findById(id) //
+                .orElseThrow(() -> new UserNotFoundException(id));
+        if (user.getPassword().equals(password)) {
+            return true;
+        }
+        return false;
     }
 
     public EntityModel<User> one(Long id) {
