@@ -1,5 +1,6 @@
-package com.example.mayass;
+package com.example.mayass.entity;
 
+import com.example.mayass.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;

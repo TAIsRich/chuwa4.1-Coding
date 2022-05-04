@@ -1,4 +1,5 @@
-package com.example.mayass;
+package com.example.mayass.exceptions;
+import com.example.mayass.exceptions.UserNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

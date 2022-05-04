@@ -1,4 +1,4 @@
-package com.example.mayass;
+package com.example.mayass.exceptions;
 
 public class UserNotFoundException extends RuntimeException {
 

@@ -1,7 +1,8 @@
-package com.example.mayass;
+package com.example.mayass.entity;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -9,8 +10,14 @@ import javax.persistence.Id;
 @Entity
 public class User {
     private @Id @GeneratedValue Long id;
+
+    @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false)
     private String role;
+
+    @Column(nullable = false)
     private String password;
 
     public User() {
