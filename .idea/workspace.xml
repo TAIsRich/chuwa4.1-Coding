@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0ab7b52-252d-4a1e-9169-989a46136363" name="Default Changelist" comment="add branch and update checkingAccount and Bank class">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oop/sprintboot.search.net.api/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/oop/sprintboot.search.net.api/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oop/user.h2/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/oop/user.h2/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,15 +44,13 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -72,6 +73,8 @@
       <workItem from="1649865106438" duration="1000" />
       <workItem from="1649865134754" duration="4130000" />
       <workItem from="1649884514379" duration="658000" />
+      <workItem from="1651515792989" duration="223000" />
+      <workItem from="1651633510741" duration="823000" />
     </task>
     <task id="LOCAL-00001" summary="add design classes">
       <created>1649864161288</created>
