@@ -7,9 +7,10 @@ import java.util.List;
 /**
  * @description: some desc
  * @author: FY Dong
- * @date: 5/4/22 9:42 AM
+ * @date: 5/11/22 3:03 PM
  */
 public interface UserService {
+
     List<User> getAllUsers();
     User saveUser(User user);
     User searchUserById(Long id);
@@ -18,9 +19,5 @@ public interface UserService {
     boolean isRegistered(String email);
 
     boolean login(Long id, String firstName);
-
-
-
-
 
 }

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  * @author: FY Dong
  * @date: 5/4/22 9:50 AM
  */
-
+@ResponseStatus(value = HttpStatus.NOT_FOUND)
 public class UserNotFoundException extends RuntimeException {
 
     public UserNotFoundException(String message) {

@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * @description: some desc
@@ -20,41 +21,28 @@ import java.util.Objects;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="USERS")
+@Table(name="users")
 public class User {
     @Id
     @GeneratedValue
     private Long id;
 
-    @Column(name="First_Name", nullable=false)
-    private String firstName;
+    @Column(nullable=false)
+    private String username;
 
-    @Column(name="Last_Name", nullable=false)
-    private String lastName;
-
-    @Column(name="Email", nullable=false)
+    @Column(nullable=false)
     private String email;
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                '}';
-    }
+    @Column(nullable=false)
+    private String password;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return Objects.equals(email, user.email);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(email);
-    }
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+    private Set<Role> roles;
+
+
+
 }

@@ -9,14 +9,12 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * @description: some desc
  * @author: FY Dong
- * @date: 5/4/22 9:42 AM
+ * @date: 5/11/22 3:07 PM
  */
-
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -34,7 +32,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getAllUsers() {
         return userRepository.findAll();
-
     }
 
     @Override
@@ -44,7 +41,7 @@ public class UserServiceImpl implements UserService {
         }
         else {
             registeredEmails.add(user.getEmail());
-            validationMap.put(user.getId(), user.getFirstName());
+            validationMap.put(user.getId(), user.getUsername());
             return userRepository.save(user);
         }
     }
@@ -69,12 +66,12 @@ public class UserServiceImpl implements UserService {
                 new UserNotFoundException("Could not find user " + id));
         if (isRegistered(user.getEmail())) throw new EmailHasRegisteredException();
 
-        existingUser.setFirstName(user.getFirstName());
-        existingUser.setLastName(user.getLastName());
+
+        existingUser.setUsername(user.getUsername());
         existingUser.setEmail(user.getEmail());
 
         registeredEmails.add(existingUser.getEmail());
-        validationMap.replace(id, user.getFirstName());
+        validationMap.replace(id, user.getUsername());
         userRepository.save(existingUser);
 
         return existingUser;
@@ -85,7 +82,7 @@ public class UserServiceImpl implements UserService {
         User existingUser = userRepository.findById(id).orElseThrow(()->
                 new UserNotFoundException("Could not find user " + id));
         registeredEmails.remove(existingUser.getEmail());
-        validationMap.remove(id, existingUser.getFirstName());
+        validationMap.remove(id, existingUser.getUsername());
         userRepository.deleteById(id);
 
     }
@@ -101,3 +98,4 @@ public class UserServiceImpl implements UserService {
         else return false;
     }
 }
+
