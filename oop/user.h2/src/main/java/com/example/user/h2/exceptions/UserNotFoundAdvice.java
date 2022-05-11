@@ -1,4 +1,4 @@
-package com.example.user.h2.exceptions;
+/*package com.example.user.h2.exceptions;
 
 
 import org.springframework.http.HttpStatus;
@@ -17,4 +17,4 @@ public class UserNotFoundAdvice {
         return ux.getMessage();
     }
 
-}
+}*/

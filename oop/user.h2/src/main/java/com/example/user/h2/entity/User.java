@@ -4,6 +4,7 @@ package com.example.user.h2.entity;
 import org.springframework.context.annotation.Bean;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -18,6 +19,10 @@ public class User {
     private String email;
     @Column(name="password")
     private String password;
+    @Column(name="LOGIN_NAME")
+    private String loginName;
+    @Column(name="CREATED_DATE")
+    Date date;
 
     public User(String name, String email, String password) {
         this.name = name;
@@ -43,6 +48,14 @@ public class User {
         return this.email;
     }
 
+    public String getLoginName() {
+        return loginName;
+    }
+
+    public Date getDate(){
+        return date;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -57,6 +70,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+    public void setLoginName(String loginName) {
+        this.loginName = loginName;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     @Override
