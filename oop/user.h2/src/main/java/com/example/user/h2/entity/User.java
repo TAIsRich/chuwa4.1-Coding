@@ -2,6 +2,7 @@ package com.example.user.h2.entity;
 
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -88,5 +89,6 @@ public class User {
     public String toString() {
         return "User {" + "id=" + this.id + ", name='" + this.name + '\'' + ", email='" + this.email + '\'' + '}';
     }
+
 
 }

@@ -1,35 +1,59 @@
 package com.example.user.h2.controller;
 
 import com.example.user.h2.entity.User;
-import com.example.user.h2.exceptions.UserNotFoundException;
-import com.example.user.h2.repository.UserRepo;
 import com.example.user.h2.service.UserService;
-import jdk.jshell.spi.ExecutionControl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.provisioning.JdbcUserDetailsManager;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
+import java.net.http.HttpHeaders;
 import java.util.List;
 
+
+@Api(tags = "Authentication")
 @RestController
 public class UserController {
+
+    private final AuthenticationManager authenticationManager;
+    private final JwtTokenUtil jwtTokenUtil;
+    private final User user;
 
     private UserService userService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(AuthenticationManager authenticationManager, JwtTokenUtil jwtTokenUtil, User user, UserService userService) {
         super();
-        this.userService = userService;
+        this.authenticationManager = authenticationManager;
+        this.jwtTokenUtil = jwtTokenUtil;
+        this.user = user;
     }
 
+    @PostMapping("login")
+    public ResponseEntity<User> login(@RequestBody @Valid AuthRequest request) {
+        try {
+            Authentication authenticate = authenticationManager
+                    .authenticate(
+                            new UsernamePasswordAuthenticationToken(
+                                    request.getUsername(), request.getPassword()
+                            )
+                    );
+            User user = (User) authenticate.getPrincipal();
 
-    @RequestMapping("/welcome")
-    public ModelAndView firstPage() {
-        return new ModelAndView("welcome");
+            return ResponseEntity.ok()
+                    .header(
+                            HttpHeaders.AUTHORIZATION,
+                            jwtTokenUtil.generateAccessToken(user)
+                    )
+                    .body(userViewMapper.toUserView(user));
+
+        } catch (BadCredentialsException ex) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
     }
 
 
