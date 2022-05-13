@@ -45,18 +45,18 @@ public class AuthController {
         if(userRepository.existsByEmail(signUpDto.getEmail())){
             return  new ResponseEntity<>("Email is already token",HttpStatus.BAD_REQUEST);
         }
-
+    
         // create user object
         User user = new User();
         user.setName(signUpDto.getName());
         user.setUsername(signUpDto.getUsername());
         user.setEmail(signUpDto.getEmail());
         user.setPassword(signUpDto.getPassword());
-
+    
         userRepository.save(user);
-
+    
         return new ResponseEntity<>("user registered successfully",HttpStatus.OK);
-
+    
     }
 
 
@@ -66,10 +66,10 @@ public class AuthController {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                 loginDto.getUsernameOremail(),loginDto.getPassword()
         ));
-
+    
         SecurityContextHolder.getContext().setAuthentication(authentication);
         return new ResponseEntity<>("user signed-in successfully", HttpStatus.OK);
-
+    
     }
 
 }
