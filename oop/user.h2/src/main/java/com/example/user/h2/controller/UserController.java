@@ -3,6 +3,8 @@ package com.example.user.h2.controller;
 import com.example.user.h2.entity.User;
 import com.example.user.h2.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -15,25 +17,37 @@ import java.net.http.HttpHeaders;
 import java.util.List;
 
 
-@Api(tags = "Authentication")
 @RestController
+@RequestMapping("/")
 public class UserController {
 
-    private final AuthenticationManager authenticationManager;
-    private final JwtTokenUtil jwtTokenUtil;
-    private final User user;
-
-    private UserService userService;
+    //private final AuthenticationManager authenticationManager;
+    //private final JwtTokenUtil jwtTokenUtil;
+    private final UserService userService;
 
     @Autowired
-    public UserController(AuthenticationManager authenticationManager, JwtTokenUtil jwtTokenUtil, User user, UserService userService) {
+    public UserController( UserService userService) {
         super();
-        this.authenticationManager = authenticationManager;
-        this.jwtTokenUtil = jwtTokenUtil;
-        this.user = user;
+        this.userService = userService;
     }
 
-    @PostMapping("login")
+    @GetMapping("/login")
+    public String login() {
+        return "/h2-console";
+    }
+
+    @GetMapping("/")
+    public String index() {
+        return "greeting from spring boot";
+    }
+
+    @GetMapping("/users")
+    public List<User> getAllUsers() {
+        return userService.getAll();
+    }
+
+
+    /*@PostMapping("login")
     public ResponseEntity<User> login(@RequestBody @Valid AuthRequest request) {
         try {
             Authentication authenticate = authenticationManager
@@ -54,45 +68,14 @@ public class UserController {
         } catch (BadCredentialsException ex) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
-    }
+    }*/
 
 
-    @GetMapping("/users")
-    List<User> getAllUser() {
-        return userService.getAll();
-    }
-
-    @GetMapping("/username")
-    public String currentUserName(User user) {
-        return user.getName();
-    }
-
-    @GetMapping("/login")
-    public String userLogin() {
-        return "redirect:/login";
-    }
 
 
     @PostMapping("/users/user")
-    public ResponseEntity<User> saveUser(@RequestBody User newUser) {
-        return new ResponseEntity<User>(userService.saveUser(newUser), HttpStatus.CREATED);
-    }
-
-    @GetMapping("/users/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable("id") Long id) {
-        return new ResponseEntity<User>(userService.getUserById(id), HttpStatus.OK);
-    }
-
-    @PutMapping("{id}")
-    public ResponseEntity<User> updateEmployee(@PathVariable("id") long id
-                                               ,@RequestBody User user){
-        return new ResponseEntity<User>(userService.updateUser(user, id), HttpStatus.OK);
-    }
-
-    @DeleteMapping("{id}")
-    public ResponseEntity<String> deleteUser(@PathVariable("id") long id) {
-        userService.deleteUser(id);
-        return new ResponseEntity<>("User deleted successfully", HttpStatus.OK);
+    public void saveUser(@RequestBody User newUser) {
+        userService.saveUser(newUser);
     }
 
 }

@@ -1,4 +1,4 @@
-package com.example.user.h2.controller;
+/*package com.example.user.h2.controller;
 
 import com.example.user.h2.repository.UserRepo;
 import org.springframework.context.annotation.Bean;
@@ -67,3 +67,4 @@ public class JwtTokenFilter extends OncePerRequestFilter {
         return super.authenticationManagerBean();
     }
 }
+*/

@@ -25,15 +25,41 @@ import javax.servlet.http.HttpServletResponse;
 
 import static java.lang.String.format;
 
-@EnableWebSecurity
+/*@EnableWebSecurity
 @EnableGlobalMethodSecurity(
         securedEnabled = true,
         jsr250Enabled = true,
         prePostEnabled = true
-)
+)*/
+
+/* Reference: https://springframework.guru/using-the-h2-database-console-in-spring-boot-with-spring-security/
+Spring Security Configuration
+If you’ve enabled Spring Security in your Spring Boot application, you will
+not be able to access the H2 database console. With its default settings under Spring Boot, Spring Security will block access to H2 database console.
+To enable access to the H2 database console under Spring Security you need to change three things:
+Allow all access to the url path /console/*.
+Disable CRSF (Cross-Site Request Forgery). By default, Spring Security will protect against CRSF attacks.
+Since the H2 database console runs inside a frame, you need to enable this in in Spring Security.
+The following Spring Security Configuration will:
+Allow all requests to the root url (“/”) (Line 12)
+Allow all requests to the H2 database console url (“/console/*”) (Line 13)
+Disable CSRF protection (Line 15)
+Disable X-Frame-Options in Spring Security (Line 16)*/
+
+@Configuration
 public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    private final UserRepo userRepo;
+    @Override
+    protected void configure(HttpSecurity httpSecurity) throws Exception {
+        httpSecurity.authorizeRequests().antMatchers("/").permitAll().and()
+                .authorizeRequests().antMatchers("/console/**").permitAll();
+        httpSecurity.csrf().disable();
+        httpSecurity.headers().frameOptions().disable();
+    }
+
+}
+
+    /*private final UserRepo userRepo;
     private final JwtTokenFilter jwtTokenFilter;
 
     public SpringSecurityConfiguration(UserRepo userRepo, JwtTokenFilter jwtTokenFilter) {
@@ -110,4 +136,5 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
     //authenticationMgr.inMemoryAuthentication().withUser("admin").password("admin")
     //.withUser("javainuse").password("javainuse").
     //"ROLE_ADMIN");
-}
+/*}
+*/

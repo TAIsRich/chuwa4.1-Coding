@@ -1,4 +1,4 @@
-package com.example.user.h2.controller;
+/*package com.example.user.h2.controller;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -68,4 +68,4 @@ public class JwtTokenUtil implements Serializable{
     }
 
 
-}
+}*/

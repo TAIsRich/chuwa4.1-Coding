@@ -1,6 +1,7 @@
 package com.example.user.h2.service;
 
 import com.example.user.h2.entity.User;
+import com.example.user.h2.exceptions.UserAlreadyExistException;
 import com.example.user.h2.exceptions.UserNotFoundException;
 import com.example.user.h2.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import java.util.Optional;
 @Service
 public class UserServiceImpl implements UserService {
 
+    @Autowired
     private UserRepo userRepo;
 
     @Autowired
@@ -22,8 +24,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User saveUser(User user) {
-        return null;
+    public void saveUser(User user) {
+        Optional<User> results = userRepo.findById(user.getId());
+
+        if(!results.isEmpty()) {
+            throw new UserAlreadyExistException(user.getName());
+        }
+        userRepo.save(user);
     }
 
     @Override

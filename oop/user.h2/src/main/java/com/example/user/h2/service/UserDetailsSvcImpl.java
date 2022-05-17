@@ -1,4 +1,4 @@
-package com.example.user.h2.service;
+/*package com.example.user.h2.service;
 
 import com.example.user.h2.entity.User;
 import com.example.user.h2.exceptions.UserNotFoundException;
@@ -41,10 +41,11 @@ public class UserDetailsSvcImpl implements UserDetailsService{
             throw new UserNotFoundException("User not found", "Id");
         }
 
+        return null;
         //UserDetails userDetails =
-        return new org.springframework.security.core.userdetails.User(user.getLoginName()).password(user.getPassword()).authorities("USER").build();
+        //return new org.springframework.security.core.userdetails.User(user.getLoginName()).password(user.getPassword()).authorities("USER").build();
         //return userDetails;
     }
 
 
-}
+}*/

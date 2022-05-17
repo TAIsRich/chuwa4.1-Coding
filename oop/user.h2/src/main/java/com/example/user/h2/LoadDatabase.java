@@ -17,10 +17,10 @@ public class LoadDatabase {
     @Bean
     CommandLineRunner initDatabase(UserRepo repo) {
         return args -> {
-            log.info("Preloading " + repo.save(new User("Adam", "adam85@gmail.com", "19850123")));
-            log.info("Preloading " + repo.save(new User("Alice", "alice82@gmail.com", "19820301")));
-            log.info("Preloading " + repo.save(new User("Bobo", "bobo97@gmail.com", "19970805")));
-            log.info("Preloading " + repo.save(new User("Becky", "becky95@gmail.com", "19950805")));
+            log.info("Preloading " + repo.save(new User("Adam", "adam85@gmail.com", "19850123", "Adam" )));
+            log.info("Preloading " + repo.save(new User("Alice", "alice82@gmail.com", "19820301", "alice" )));
+            log.info("Preloading " + repo.save(new User("Bobo", "bobo97@gmail.com", "19970805", "yibo")));
+            log.info("Preloading " + repo.save(new User("Becky", "becky95@gmail.com", "19950805", "becky")));
         };
     }
 

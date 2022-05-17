@@ -9,10 +9,12 @@ import java.util.Date;
 import java.util.Objects;
 
 @Entity
+@Table(name="USER_TABLE")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="id")
     private Long id;
     @Column(name="name")
     private String name;
@@ -22,18 +24,18 @@ public class User {
     private String password;
     @Column(name="LOGIN_NAME")
     private String loginName;
-    @Column(name="CREATED_DATE")
-    Date date;
 
-    public User(String name, String email, String password) {
+    public User(String name, String email, String password, String loginName) {
         this.name = name;
         this.email = email;
         this.password = password;
+        this.loginName = loginName;
     }
 
     public User() {
 
     }
+
 
     public Long getId() {
         return this.id;
@@ -53,9 +55,6 @@ public class User {
         return loginName;
     }
 
-    public Date getDate(){
-        return date;
-    }
 
     public void setId(Long id) {
         this.id = id;
@@ -76,9 +75,6 @@ public class User {
         this.loginName = loginName;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
 
     @Override
     public int hashCode() {
