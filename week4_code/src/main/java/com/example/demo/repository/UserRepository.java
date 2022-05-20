@@ -13,4 +13,6 @@ public interface UserRepository extends CrudRepository<User, Long> {
     public User findById(long id);
 
     public boolean existsByLoginName(String loginName);
+
+    public User findByLoginName(String username);
 }

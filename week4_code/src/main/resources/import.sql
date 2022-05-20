@@ -1,3 +1,3 @@
 INSERT INTO "USER" (ID, LOGIN_NAME,PASSWORD, FIRST_NAME, LAST_NAME,EMAIL, CREATED_DATE) VALUES(1, 'test_login','test_login','John', 'Doe', 'john.doe@gmail.com',TO_DATE('2021-01-27', 'yyyy-mm-dd'));
 INSERT INTO "USER" (ID, LOGIN_NAME, PASSWORD,FIRST_NAME, LAST_NAME,EMAIL, CREATED_DATE) VALUES(2, 'test_login2','test_login2','Tom', 'King', 'tom.king@gmail.com',TO_DATE('2021-01-27', 'yyyy-mm-dd'));
-INSERT INTO "USER" (ID, LOGIN_NAME, PASSWORD,FIRST_NAME, LAST_NAME,EMAIL, CREATED_DATE) VALUES(3, 'test_login3','test_login3','Jim', 'Cramer', 'jim.cramer@gmail.com',TO_DATE('2021-01-27', 'yyyy-mm-dd'));
+INSERT INTO "USER" (ID, LOGIN_NAME, PASSWORD,FIRST_NAME, LAST_NAME,EMAIL, CREATED_DATE) VALUES(3, ' ','test_login3','Jim', 'Cramer', 'jim.cramer@gmail.com',TO_DATE('2021-01-27', 'yyyy-mm-dd'));
